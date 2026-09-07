@@ -49,4 +49,34 @@
   window.addEventListener('resize', updateBackground);
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(sizeBackground);
   updateBackground();
+
+  // Glass objects: while scrolling, the current set gently blurs out and
+  // the next set appears, so the background never feels static.
+  const floatingSets = [...document.querySelectorAll('.floating-set')];
+  const updateFloatingSets = () => {
+    if (!floatingSets.length) return;
+    const step = Math.max(window.innerHeight * 0.72, 520);
+    const position = window.scrollY / step;
+    const base = Math.floor(position) % floatingSets.length;
+    const progress = position - Math.floor(position);
+    floatingSets.forEach((set, i) => {
+      const distance = (i - base + floatingSets.length) % floatingSets.length;
+      set.classList.remove('is-active', 'is-blurring');
+      if (distance === 0) {
+        set.classList.add(progress > .72 ? 'is-blurring' : 'is-active');
+      } else if (distance === 1 && progress > .48) {
+        set.classList.add('is-active');
+      }
+    });
+  };
+  let floatingTick = false;
+  window.addEventListener('scroll', () => {
+    if (!floatingTick) {
+      requestAnimationFrame(() => { updateFloatingSets(); floatingTick = false; });
+      floatingTick = true;
+    }
+  }, {passive:true});
+  window.addEventListener('resize', updateFloatingSets);
+  updateFloatingSets();
+
 })();

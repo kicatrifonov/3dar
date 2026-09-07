@@ -311,3 +311,59 @@ main{position:relative;z-index:5}
     opacity: 0.4;
   }
 }
+
+/* =========================================================
+   NEW GLASS OBJECTS — вместо жёстких кубов
+   ========================================================= */
+.page-bg{isolation:isolate}
+.floating-scene{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:2}
+.floating-set{position:absolute;inset:0;opacity:0;filter:blur(9px);transform:scale(.985) translate3d(0,18px,0);transition:opacity .75s ease,filter .75s ease,transform .9s cubic-bezier(.22,.61,.36,1)}
+.floating-set.is-active{opacity:.9;filter:blur(0);transform:scale(1) translate3d(0,0,0)}
+.floating-set.is-blurring{opacity:.08;filter:blur(18px);transform:scale(1.04) translate3d(0,-18px,0)}
+
+.floating-set span{position:absolute;display:block;will-change:transform;mix-blend-mode:multiply}
+.glass-orb{width:118px;height:118px;border-radius:50%;background:radial-gradient(circle at 30% 24%,rgba(255,255,255,.92) 0 8%,rgba(255,255,255,.55) 13%,rgba(194,224,255,.48) 34%,rgba(121,169,238,.18) 62%,rgba(255,255,255,0) 74%);border:1px solid rgba(255,255,255,.72);box-shadow:inset -18px -22px 38px rgba(77,126,211,.12),inset 10px 12px 25px rgba(255,255,255,.62),0 18px 40px rgba(66,113,190,.10)}
+.glass-orb::after{content:"";position:absolute;left:21%;top:17%;width:18%;height:10%;border-radius:50%;background:rgba(255,255,255,.82);filter:blur(3px);transform:rotate(-25deg)}
+.glass-orb.small{width:46px;height:46px}
+.glass-blob{width:150px;height:115px;border-radius:46% 54% 61% 39% / 48% 41% 59% 52%;background:linear-gradient(135deg,rgba(255,255,255,.74),rgba(184,214,255,.34) 45%,rgba(132,170,232,.16));border:1px solid rgba(255,255,255,.72);box-shadow:inset 15px 12px 30px rgba(255,255,255,.38),inset -25px -20px 35px rgba(66,113,190,.10),0 24px 50px rgba(66,113,190,.12)}
+.glass-blob::before{content:"";position:absolute;inset:8% 20% 55% 12%;border-radius:50%;background:rgba(255,255,255,.32);filter:blur(8px);transform:rotate(-12deg)}
+.glass-blob.soft{filter:blur(1px);opacity:.62}
+.glass-ring{width:118px;height:118px;border-radius:50%;border:15px solid rgba(255,255,255,.30);box-shadow:inset 0 0 0 2px rgba(113,162,236,.26),0 15px 34px rgba(66,113,190,.09);transform:rotateX(68deg) rotateZ(-18deg);background:rgba(190,220,255,.08)}
+.glass-star{width:88px;height:88px;background:linear-gradient(145deg,rgba(255,255,255,.74),rgba(164,201,252,.22));border:1px solid rgba(255,255,255,.72);border-radius:28% 72% 32% 68% / 64% 31% 69% 36%;transform:rotate(45deg) skew(-7deg,-7deg);box-shadow:inset 13px 10px 25px rgba(255,255,255,.42),inset -16px -14px 28px rgba(76,125,211,.10),0 18px 38px rgba(66,113,190,.10)}
+.glass-pill{width:180px;height:58px;border-radius:999px;background:linear-gradient(100deg,rgba(255,255,255,.66),rgba(177,210,255,.24));border:1px solid rgba(255,255,255,.72);box-shadow:inset 12px 10px 22px rgba(255,255,255,.38),inset -18px -10px 25px rgba(68,113,193,.08),0 18px 36px rgba(66,113,190,.10);transform:rotate(-16deg)}
+
+/* Позиции и индивидуальное плавное движение */
+.orb-a1{left:7%;top:13%;animation:glassFloatA 9s ease-in-out infinite}
+.blob-a2{right:7%;top:21%;animation:glassFloatB 11s ease-in-out infinite}
+.ring-a3{left:52%;top:8%;animation:glassSpin 18s linear infinite}
+.star-a4{right:24%;top:57%;animation:glassFloatC 10s ease-in-out infinite}
+.orb-a5{left:20%;bottom:18%;animation:glassFloatB 8s ease-in-out infinite reverse}
+.pill-a6{right:4%;bottom:17%;animation:glassFloatA 12s ease-in-out infinite reverse}
+.blob-a7{left:42%;bottom:4%;animation:glassFloatC 13s ease-in-out infinite}
+
+.blob-b1{left:3%;top:38%;animation:glassFloatC 10s ease-in-out infinite}
+.orb-b2{right:12%;top:10%;animation:glassFloatA 8s ease-in-out infinite reverse}
+.ring-b3{right:31%;top:39%;animation:glassSpin 20s linear infinite reverse}
+.star-b4{left:15%;top:68%;animation:glassFloatB 9s ease-in-out infinite}
+.pill-b5{right:2%;bottom:32%;animation:glassFloatC 12s ease-in-out infinite reverse}
+.orb-b6{left:58%;bottom:14%;animation:glassFloatA 7s ease-in-out infinite}
+.blob-b7{right:35%;bottom:2%;animation:glassFloatB 14s ease-in-out infinite reverse}
+
+.orb-c1{left:12%;top:22%;animation:glassFloatB 10s ease-in-out infinite}
+.star-c2{right:10%;top:40%;animation:glassFloatA 11s ease-in-out infinite reverse}
+.blob-c3{left:45%;top:9%;animation:glassFloatC 12s ease-in-out infinite}
+.ring-c4{left:7%;bottom:22%;animation:glassSpin 17s linear infinite}
+.pill-c5{right:23%;bottom:10%;animation:glassFloatA 13s ease-in-out infinite}
+.orb-c6{right:5%;top:73%;animation:glassFloatB 8s ease-in-out infinite reverse}
+.blob-c7{left:35%;bottom:3%;animation:glassFloatC 11s ease-in-out infinite reverse}
+
+@keyframes glassFloatA{0%,100%{translate:0 0;rotate:0deg}50%{translate:-13px -24px;rotate:5deg}}
+@keyframes glassFloatB{0%,100%{translate:0 0;rotate:0deg}50%{translate:17px 15px;rotate:-6deg}}
+@keyframes glassFloatC{0%,100%{translate:0 0;rotate:0deg}50%{translate:10px -18px;rotate:8deg}}
+@keyframes glassSpin{0%{rotate:0deg}100%{rotate:360deg}}
+
+@media(max-width:820px){
+  .floating-set{transform:scale(.82) translate3d(0,12px,0)}
+  .floating-set.is-active{transform:scale(.86)}
+  .glass-orb{width:82px;height:82px}.glass-orb.small{width:34px;height:34px}.glass-blob{width:105px;height:82px}.glass-ring{width:82px;height:82px;border-width:10px}.glass-star{width:62px;height:62px}.glass-pill{width:125px;height:42px}
+}
