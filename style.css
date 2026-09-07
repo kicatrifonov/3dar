@@ -169,3 +169,28 @@ main{position:relative;z-index:5}
   .section-title{font-size:31px}.section-subtitle{font-size:15px}.cap-card h3{font-size:20px}.how-card h3{font-size:18px}.section-cta-left{font-size:16px}.section-cta-button{font-size:16px}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal,.phone,.btn,.social-card,.social-btn,.hero-feature img,.bg-glow,.hero-dots,.geo,.section-cta-button::before{transition:none;animation:none!important}}
+
+/* Имитация 3D-куба */
+.geo-cube-3d {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, rgba(70, 140, 255, 0.7), rgba(30, 80, 200, 0.5));
+  border-radius: 4px;
+  box-shadow: 
+    8px 8px 0 rgba(20, 60, 180, 0.3),
+    12px 12px 20px rgba(0,0,0,0.15);
+  transform: rotate(10deg) skewX(-5deg);
+  transition: transform 0.3s;
+}
+
+/* Имитация 3D-прямоугольника (длинный) */
+.geo-box-3d {
+  width: 80px;
+  height: 40px;
+  background: linear-gradient(145deg, rgba(100, 180, 255, 0.6), rgba(40, 100, 220, 0.5));
+  border-radius: 4px;
+  box-shadow: 
+    10px 8px 0 rgba(20, 60, 180, 0.25),
+    14px 12px 24px rgba(0,0,0,0.12);
+  transform: rotate(-5deg) skewY(3deg);
+}
