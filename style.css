@@ -35,6 +35,12 @@ button{font:inherit}
 .geo-4{right:7%;top:61%;animation:geoFloat2 11s ease-in-out infinite}
 .geo-5{left:12%;top:78%;animation:geoFloat1 9s ease-in-out infinite reverse}
 .geo-6{right:18%;top:86%;animation:geoFloat3 13s ease-in-out infinite}
+.geo-13 { left: 5%; top: 10%; animation: geoFloat1 8s ease-in-out infinite; }
+.geo-14 { right: 12%; top: 30%; animation: geoFloat2 11s ease-in-out infinite reverse; }
+.geo-15 { left: 25%; top: 55%; animation: geoFloatNoRotate1 9s ease-in-out infinite; }
+.geo-16 { right: 8%; top: 70%; animation: geoFloat3 13s ease-in-out infinite reverse; }
+.geo-17 { left: 15%; top: 85%; animation: geoFloat2 10s ease-in-out infinite; }
+.geo-18 { right: 22%; top: 5%; animation: geoFloat1 12s ease-in-out infinite reverse; }
 @keyframes geoFloat1{0%,100%{transform:translate3d(0,0,0) rotate(45deg)}50%{transform:translate3d(-8px,-18px,0) rotate(65deg)}}
 @keyframes geoFloat2{0%,100%{transform:translate3d(0,0,0) rotate(45deg)}50%{transform:translate3d(10px,14px,0) rotate(85deg)}}
 @keyframes geoFloat3{0%,100%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(8px,-16px,0) scale(1.08)}}
