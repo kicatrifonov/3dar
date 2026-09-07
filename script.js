@@ -22,14 +22,24 @@
     target.scrollIntoView({behavior:'smooth', block:'start'});
   }));
 
-  // Раннее размытие фона (старт при ~45% высоты hero-секции)
+  // The supplied background is one continuous layer for the whole document.
   const bg = document.querySelector('.page-bg');
   let ticking = false;
+  const sizeBackground = () => {
+    const pageHeight = Math.max(
+      document.documentElement.scrollHeight,
+      document.body.scrollHeight,
+      document.documentElement.clientHeight
+    );
+    bg.style.height = `${pageHeight}px`;
+    bg.style.width = '100%';
+  };
   const updateBackground = () => {
+    sizeBackground();
     const hero = document.getElementById('home');
-    const trigger = hero.offsetTop + hero.offsetHeight * 0.45;
-    const ramp = Math.min(1, Math.max(0, (window.scrollY - trigger) / Math.max(60, window.innerHeight * 0.10)));
-    const blur = (ramp * 16).toFixed(1);
+    const trigger = Math.max(hero.offsetHeight * 0.35, window.innerHeight * 0.35);
+    const ramp = Math.min(1, Math.max(0, (window.scrollY - trigger) / Math.max(180, window.innerHeight * 0.55)));
+    const blur = (ramp * 4).toFixed(1);
     bg.style.setProperty('--bg-blur', `${blur}px`);
     ticking = false;
   };
@@ -37,5 +47,6 @@
     if (!ticking) { requestAnimationFrame(updateBackground); ticking = true; }
   }, {passive:true});
   window.addEventListener('resize', updateBackground);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(sizeBackground);
   updateBackground();
 })();

@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Фоновый слой (перенесён из index.html как есть) -->
   <div class="page-bg" aria-hidden="true">
     <svg class="bg-art" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
       <defs>
@@ -64,9 +65,15 @@
         <path d="M960 260l24 0M972 248l0 24"/><path d="M1390 520l28 0M1404 506l0 28"/><path d="M560 210l24 0M572 198l0 24"/>
       </g>
     </svg>
-    <div class="bg-glow bg-glow-1"></div><div class="bg-glow bg-glow-2"></div><div class="bg-glow bg-glow-3"></div>
+    <div class="geo geo-cube geo-1"></div>
+    <div class="geo geo-diamond geo-2"></div>
+    <div class="geo geo-ring geo-3"></div>
+    <div class="geo geo-cube geo-4"></div>
+    <div class="geo geo-diamond geo-5"></div>
+    <div class="geo geo-sphere geo-6"></div>
   </div>
 
+  <!-- Шапка -->
   <header class="site-header">
     <div class="header-inner">
       <a class="brand" href="#home" aria-label="Интерактивный Дизайн Пространств">
@@ -81,12 +88,17 @@
       </nav>
       <a class="btn btn-blue header-download" href="#home">
         <span class="download-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M12 3v11" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="m7.5 10.5 4.5 4.5 4.5-4.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 20h14" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M12 3v11" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+            <path d="m7.5 10.5 4.5 4.5 4.5-4.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M5 20h14" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+          </svg>
         </span>Скачать
       </a>
     </div>
   </header>
 
+  <!-- Основное содержание -->
   <main>
     <section id="home" class="section hero">
       <div class="section-inner hero-grid">
@@ -105,7 +117,7 @@
         </div>
         <div class="hero-visual reveal">
           <div class="hero-orb"></div><div class="hero-dots"></div>
-          <div class="phone"><img src="assets/Главная_плашка_с_категориями.png" alt="Интерфейс AR-приложения"></div>
+          <div class="phone"><img src="assets/смартфон.png" alt="Интерфейс AR-приложения"></div>
         </div>
       </div>
     </section>
@@ -132,7 +144,7 @@
           <article class="card how-card reveal"><img src="assets/Работает_рис4.png" alt=""><h3>Контур достроен — задача выполнена</h3><p>Заливка пола и потолка обновляется в реальном времени. Когда помещение полностью распознано, кнопка становится активной и сохраняет шаблон.</p></article>
         </div>
         <div class="how-bottom">
-          <img class="how-image reveal" src="assets/Работает_рис1.png" alt="Процесс сканирования">
+          <img class="how-image reveal" src="assets/rear.png" alt="Процесс сканирования">
           <div class="how-info reveal"><h3>Что происходит во время сканирования:</h3><ul>
             <li><strong>Отслеживание движения</strong><br>камера и гироскоп анализируют перемещение телефона</li>
             <li><strong>Построение контура</strong><br>система соединяет углы и создаёт план помещения</li>
